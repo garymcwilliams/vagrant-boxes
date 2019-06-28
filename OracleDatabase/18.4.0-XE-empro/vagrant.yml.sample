@@ -1,0 +1,85 @@
+---
+# vim: set tabstop=2 shiftwidth=2 autoindent expandtab filetype=yaml :
+
+# ==============================================================================
+env:
+    guestos: centos # windows
+      # allow overloading of boxname (currently for windows only), default win2012-lagan
+#    vm_boxname = win2016-lagan
+    ipAddress: 192.168.15.10
+# override database host port (by default 1521 for Oracle, 1433 for MSS)
+#    dbhostport: 1522
+# override cas ssl host port (by default 6443)
+#    cassslhostport: 6443
+# override the user to be used to own the /opt/lagan folders
+#    le_user: lagan
+# what base-name will the Virtual machine have?
+# the default generated name will be <current-folder-name>
+#    vm_name: vag-centos-trunk
+# force virtualbox UI display (useful for debugging vagrant setup)
+#    vm_gui: true
+# override base memory (3072 by default)
+#    vm_memory: 2048
+# allow setting of local timezone. Available zones can be listed from a
+# running centos system at /usr/share/zoneinfo
+#    timezone: US/Mountain
+# allow override of system level ports
+#    smtpPort: 1025
+#    pop3Port: 10110
+#    ldapPort: 10390
+# should we get ansible from git? If not expected that ansible-scripts are
+# deployed by copying some local version. We should get from git unless we are
+# testing the scripts themselves
+    ansibleGit: true
+#    ansibleDevFolder: d:/dev/vagrant/ansible-scripts
+# what domain to add the server to, e.g. kana-test.com
+    domain: localdomain
+# ==============================================================================
+le:
+#    version: 14r2sp1 # specific release verson
+#    version: 14r2sp1nightly # latest available 14r2
+    version: 15.1-nightly # latest available trunk
+#    devFolder: d:/dev/lagan/trunk
+    hostPort: 8080
+#    hostPortSsl: 8444
+#    hostPortDebug: 8101
+# allow override of locale for LE installer
+#    locale: US
+# Uncomment to load the sampledataloader content
+    loadsampledata: # runs sampledataloader for processes and properties/individuals
+# ==============================================================================
+#wss:
+#    version: 15r1
+#    build: 1.3.7 # Development: build: 1.3.8-SNAPSHOT
+#    devFolder: D:/dev/gitrepos/lwss
+#    hostPort: 9080
+#    samplesitemode: Full Page # default: Inline
+#    loadsamplesite: #loads the Process Library items into LE
+# ==============================================================================
+# Should we install and use apacheds ldap?
+#ldap:
+# ==============================================================================
+# should we install opencem?
+#opencem:
+#    devFolder: d:/dev/gitrepos/opencem
+# ==============================================================================
+# Should we install dforms and adapter?
+# if so, what version?
+#  NOTE: if you use -SNAPSHOT, then the latest hudson snapshot will be downloaded
+#        if you don't use -SNAPSHOT then 'released' versions are downloaded from nexus
+#    check DFORMS latest SNAPSHOT at
+#    http://bfs-pdt-build-3.kana-test.com:8080/hudson/job/dforms/
+#    check DFORMS available versions at
+#    http://bfs-pdt-nexus-1.kana-test.com:8081/nexus/index.html#nexus-search;gav~com.kana.dforms~dforms~~~~kw,versionexpand
+#
+#    check LEREST latest SNAPSHOT at
+#    http://bfs-pdt-build-3.kana-test.com:8080/hudson/job/lerest/
+#    check LEREST available releases at
+#    http://bfs-pdt-nexus-1.kana-test.com:8081/nexus/index.html#nexus-search;gav~com.kana.lwss~lerest~~~~kw,versionexpand
+# ==============================================================================
+#dforms:
+#    dforms_version: 2.2.0-SNAPSHOT
+#lerest:
+#    lerest_version: 2.2.2-SNAPSHOT
+#lreports:
+#    lreports_version: 15.5.0
